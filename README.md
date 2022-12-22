@@ -1,6 +1,7 @@
 
 # Remotty - SSH to USB serial console
-Running an headless server in the basement is prone to network access issue and expensive server are addressing this with a management board accessible via a dedicated management network. Looking at you Idrac, ILO, CIMC, IMPI...
+Running an headless server in a remote location is prone to network access issue. Expensive server are addressing this with a management board accessible via a dedicated management network. Looking at you Idrac, ILO, CIMC, IMPI...
+
 Remotty is an ESP32 based, cheap remote serial console, prodiving a secure SSH access to console enabled on USB ports.
 
 ## Hardware
@@ -141,5 +142,8 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/
 https://www.openssh.com/
 
 https://www.libssh.org/
+
+https://www.coreboot.org/GRUB2#On_a_USB_serial_or_USB_debug_adapter
+
 
 
