@@ -2,10 +2,12 @@
 # Remotty - SSH to USB serial console
 Running an headless server in a remote location is prone to network access issue. Expensive server are addressing this with a management board accessible via a dedicated management network. Looking at you Idrac, ILO, CIMC, IMPI...
 
-Remotty is an ESP32 based, cheap remote serial console, prodiving a secure SSH access to console enabled on USB ports.
+Remotty is an ESP32 based, cheap remote serial console, prodiving a secure WiFi SSH access to console enabled on USB ports.
 
 ## Hardware
 Any ESP32 board with usb port!
+
+## Use cases
 
 ## Arduino configuration
 I don't use arduino-ide, it is way to bloaded and slow. I prefer arduino-cli and vim :-).
@@ -114,7 +116,9 @@ Monitor port settings:
 stop_bits=1
 Connected to /dev/ttyUSB0! Press CTRL-C to exit.
 ```
-
+## Configuration
+### Linux
+### Grub
 
 ## Troubleshooting
 ### arduino-cli upload: [Errno 13] Permission denied: '/dev/ttyUSB0'
@@ -129,7 +133,9 @@ PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
 Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
 
-## Use cases
+## Next step
+### Hard Reset server
+### ?
 
 
 ## Usefull links
