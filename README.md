@@ -151,5 +151,7 @@ https://www.libssh.org/
 
 https://www.coreboot.org/GRUB2#On_a_USB_serial_or_USB_debug_adapter
 
+https://www.rfc-editor.org/rfc/rfc4252#section-7
+
 
 
