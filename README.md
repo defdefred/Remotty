@@ -11,6 +11,34 @@ Any ESP32 board with usb port and flashed with Arduino (https://github.com/defde
 A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi management network to several Remotty.
 
 ## Configuration
+
+### Remotty
+Uncomment only if OS serial console is not activated.
+```
+// Display errors via serial
+// #define DEBUG
+```
+Data to connect to your confidential WiFi management network. 
+```
+// Set local WiFi credentials
+const char *configSTASSID = "mySID";
+const char *configSTAPSK = "mySECRET";
+```
+You should customize SSH private host key for each microcontroller board.
+```
+// Set remotty hostkey
+const char *configHOSTKEY = "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAA
+↪AAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZWQyNTUxOQAAACDGogjt/r8zbECmh6lm1UX6Gx+lAmbfG7PsFHTNkQiYQAAAAJD
+↪QkgeZ0JIHmQAAAAtzc2gtZWQyNTUxOQAAACDGogjt/r8zbECmh6lm1UX6Gx+lAmbfG7PsFHTNkQiYQAAAAEAhjpXJ4AgPfRC8P
+↪uuNIEq0itAFa2pxG0S5iMEe0iAY/saiCO3+vzNsQKaHqWbVRfobH6UCZt8bs+wUdM2RCJhAAAAAAAECAwQFBgcICQoLDA0=\n-
+↪----END OPENSSH PRIVATE KEY-----";
+```
+Public key authorisation is the only one allowed.
+```
+// Set authorized_key
+const char *configTYPEKEY = "ssh-ed25519";
+const char *configAUTHKEY = "AAAAC3NzaC1lZDI1NTE5AAAAIPtooFfcMRdCSSouYMrBpXVG2y/qI2Iys6kkMo6mUHWq";
+```
 ### Linux
 ### Grub
 
