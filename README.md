@@ -40,6 +40,19 @@ const char *configTYPEKEY = "ssh-ed25519";
 const char *configAUTHKEY = "AAAAC3NzaC1lZDI1NTE5AAAAIPtooFfcMRdCSSouYMrBpXVG2y/qI2Iys6kkMo6mUHWq";
 ```
 ### Linux
+Plug the microcontroller and check the TTY name:
+```
+$ ls -l /dev/ttyUSB*
+crw-rw---- 1 root dialout 188, 0 Dec 24 00:45 /dev/ttyUSB0
+```
+With `systemd`:
+```
+$ sudo cp /usr/lib/systemd/system/serial-getty@.service /etc/systemd/system/serial-getty@ttyUSB0.service
+$ sudo vi /etc/systemd/system/serial-getty@ttyUSB0.service
+.... now make your changes to the agetty command line ...
+$ sudo systemctl enable serial-getty@ttyUSB0.service
+$ sudo systemctl start serial-getty@ttyUSB0.service
+```
 ### Grub
 
 ## Troubleshooting
@@ -74,6 +87,10 @@ https://www.libssh.org/
 https://www.coreboot.org/GRUB2#On_a_USB_serial_or_USB_debug_adapter
 
 https://www.rfc-editor.org/rfc/rfc4252#section-7
+
+http://0pointer.de/blog/projects/serial-console.html
+
+
 
 
 
