@@ -47,12 +47,14 @@ crw-rw---- 1 root dialout 188, 0 Dec 24 00:45 /dev/ttyUSB0
 ```
 With `systemd`:
 ```
-$ sudo cp /usr/lib/systemd/system/serial-getty@.service /etc/systemd/system/serial-getty@ttyUSB0.service
-$ sudo vi /etc/systemd/system/serial-getty@ttyUSB0.service
-.... now make your changes to the agetty command line ...
 $ sudo systemctl enable serial-getty@ttyUSB0.service
 $ sudo systemctl start serial-getty@ttyUSB0.service
 ```
+When connected to the serial console, you can resize the terminal with:
+```
+stty rows 50 cols 132
+```
+
 ### Grub
 
 ## Troubleshooting
