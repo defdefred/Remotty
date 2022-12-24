@@ -1,14 +1,15 @@
 
 # Remotty - SSH to USB serial console
+![gif](tty.gif)
+## Use cases
 Running an headless server in a remote location is prone to network access issue. Expensive server are addressing this with a management board accessible via a dedicated management network. Looking at you Idrac, ILO, CIMC, IMPI...
 
 Remotty is an ESP32 based, cheap remote serial console, prodiving a secure WiFi SSH access to console enabled on USB ports.
 
+A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi management network to several Remotty.
+
 ## Hardware & Software
 Any ESP32 board with usb port and flashed with Arduino (https://github.com/defdefred/Remotty/blob/main/README_Arduino.md)
-
-## Use cases
-A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi management network to several Remotty.
 
 ## Configuration
 
