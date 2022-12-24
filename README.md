@@ -1,6 +1,6 @@
 
 # Remotty - SSH to USB serial console
-![gif](tty.gif)
+![](https://github.com/defdefred/Remotty/blob/main/tty.gif)
 ## Use cases
 Running an headless server in a remote location is prone to network access issue. Expensive server are addressing this with a management board accessible via a dedicated management network. Looking at you Idrac, ILO, CIMC, IMPI...
 
