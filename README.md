@@ -72,8 +72,8 @@ Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
 
 ## Next step
-### Hard Reset server
-### ?
+### Hard Reset server with ATX
+### Using true serial console to access old computer
 
 
 ## Usefull links
