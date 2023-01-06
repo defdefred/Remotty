@@ -1,4 +1,3 @@
-
 # Remotty - SSH to USB serial console
 ![](https://github.com/defdefred/Remotty/blob/main/tty.gif)
 ## Use cases
@@ -46,10 +45,22 @@ Plug the microcontroller and check the TTY name:
 $ ls -l /dev/ttyUSB*
 crw-rw---- 1 root dialout 188, 0 Dec 24 00:45 /dev/ttyUSB0
 ```
-With `systemd`:
+Instanciate the systemd service:
 ```
-$ sudo systemctl enable serial-getty@ttyUSB0.service
-$ sudo systemctl start serial-getty@ttyUSB0.service
+root@minipc1:~# cp /usr/lib/systemd/system/serial-getty@.service /etc/systemd/system/serial-getty@ttyUSB0.service
+```
+Customize the service:
+```
+root@minipc:~# diff /usr/lib/systemd/system/serial-getty@.service /etc/systemd/system/serial-getty@ttyUSB0.service
+34c34
+< ExecStart=-/sbin/agetty -o '-p -- \\u' --keep-baud 115200,57600,38400,9600 - $TERM
+---
+> ExecStart=-/sbin/agetty 115200 %I -8 vt100
+```
+Use the service:
+```
+root@minipc:~# systemctl enable serial-getty@ttyUSB0.service
+root@minipc:~# systemctl start serial-getty@ttyUSB0.service
 ```
 When connected to the serial console, you can resize the terminal with:
 ```
