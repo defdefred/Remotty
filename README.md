@@ -45,7 +45,7 @@ Plug the microcontroller and check the TTY name:
 $ ls -l /dev/ttyUSB*
 crw-rw---- 1 root dialout 188, 0 Dec 24 00:45 /dev/ttyUSB0
 ```
-Instanciate the systemd service:
+Instantiate the systemd service:
 ```
 root@minipc1:~# cp /usr/lib/systemd/system/serial-getty@.service /etc/systemd/system/serial-getty@ttyUSB0.service
 ```
@@ -81,11 +81,13 @@ PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
 ```
 Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
-
-## Next step
+### agetty did not start on /dev/ttyUSBx
+Did you customize the as advised? 
+## Next ideas
 ### Hard Reset server with ATX
+http://michael.stapelberg.ch/posts/2022-10-09-remote-power-button/
 ### Using true serial console to access old computer
-
+Need to find a old equipment with RS-232 console...
 
 ## Usefull links
 https://github.com/arduino/arduino-cli/releases
