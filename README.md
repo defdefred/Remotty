@@ -68,6 +68,7 @@ stty rows 50 cols 132
 ```
 
 ### Grub
+To do...
 
 ## Troubleshooting
 ### arduino-cli upload: [Errno 13] Permission denied: '/dev/ttyUSB0'
@@ -101,6 +102,8 @@ https://www.openssh.com/
 https://www.libssh.org/
 
 https://www.coreboot.org/GRUB2#On_a_USB_serial_or_USB_debug_adapter
+
+https://szymonkrajewski.pl/how-to-boot-system-from-usb-using-grub/
 
 https://www.rfc-editor.org/rfc/rfc4252#section-7
 
