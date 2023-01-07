@@ -83,7 +83,7 @@ PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
 Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
 ### agetty did not start on /dev/ttyUSBx
-Did you customize the as advised? 
+Did you customize the systemd service as advised? 
 ## Next ideas
 ### Hard Reset server with ATX
 http://michael.stapelberg.ch/posts/2022-10-09-remote-power-button/
