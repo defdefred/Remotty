@@ -17,12 +17,7 @@ Uncomment only if OS serial console is not activated.
 ```
 // Display errors via serial
 // #define DEBUG
-```
-Data to connect to your confidential WiFi management network. 
-```
-// Set local WiFi credentials
-const char *configSTASSID = "mySID";
-const char *configSTAPSK = "mySECRET";
+// #define EASYLIBSSH_DEBUG
 ```
 You should customize SSH private host key for each microcontroller board.
 ```
@@ -35,9 +30,18 @@ const char *configHOSTKEY = "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZX
 ```
 Public key authorisation is the only one allowed.
 ```
-// Set authorized_key
-const char *configTYPEKEY = "ssh-ed25519";
-const char *configAUTHKEY = "AAAAC3NzaC1lZDI1NTE5AAAAIPtooFfcMRdCSSouYMrBpXVG2y/qI2Iys6kkMo6mUHWq";
+// Set an array of authorized_key for libSSH
+const uint8_t EASYLIBSSH_NBAUTHKEY = 2;
+const char *EASYLIBSSH_TYPEKEY[] = { "ssh-ed25519",
+                                     "ssh-ed25519" };
+const char *EASYLIBSSH_AUTHKEY[] = { "AAAAC3NzaC1lZDI1NTE5AAAAIPtooFfereunifeni34345352y/qI2Iys6kkMo6mUHWq",
+                                     "AAAAC3NzaC1lZDI1NTE5AAAAIPtooFfcMRdCSSouYMrBpXVG2y/qI2Iys6kkMo6mUHWq" };
+```
+Data to connect to your confidential WiFi management network. 
+```
+// Set local WiFi credentials
+const char *configSTASSID = "mySID";
+const char *configSTAPSK = "mySECRET";
 ```
 ### Linux
 Plug the microcontroller and check the TTY name:
@@ -74,6 +78,21 @@ To do...
 To do...
 
 ## Troubleshooting
+
+### How to compile/flash remotty?
+Compile:
+```
+./arduino-cli compile -b esp32:esp32:esp32 remotty
+```
+Flash:
+```
+./arduino-cli upload -p /dev/ttyUSB0 -b esp32:esp32:esp32 remotty
+```
+Monitor after disabling the agetty console:
+```
+./arduino-cli monitor -p /dev/ttyUSB0 -b esp32:esp32:esp32 -c 115200,off,8,none,off,1
+```
+
 ### arduino-cli upload: [Errno 13] Permission denied: '/dev/ttyUSB0'
 ```
 esptool.py v3.0-dev
@@ -85,11 +104,18 @@ PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
 ```
 Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
+
 ### agetty did not start on /dev/ttyUSBx
-Did you customize the systemd service as advised? 
+Did you customize the systemd service as advised?
+
+### ESP32 is in undefined state
+You can reset it by reflashing it.
+
 ## Next ideas
+
 ### Hard Reset server with ATX
 http://michael.stapelberg.ch/posts/2022-10-09-remote-power-button/
+
 ### Using true serial console to access old computer
 Need to find a old equipment with RS-232 console...
 
