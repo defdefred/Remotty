@@ -10,6 +10,7 @@ A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi manag
 ## Hardware & Software
 Any ESP32 board with usb port and flashed with Arduino (https://github.com/defdefred/EasyLibSSH/blob/main/README_Arduino.md)
 
+The libSSH server api is quite tricky, so I use the [easylibssh](https://github.com/defdefred/EasyLibSSH) library.
 ## Configuration
 
 ### Remotty
