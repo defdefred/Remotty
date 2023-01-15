@@ -8,7 +8,7 @@ Remotty is an ESP32 based, cheap remote serial console, prodiving a secure WiFi 
 A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi management network to several Remotty.
 
 ## Hardware & Software
-Any ESP32 board with usb port and flashed with Arduino (https://github.com/defdefred/Remotty/blob/main/README_Arduino.md)
+Any ESP32 board with usb port and flashed with Arduino (https://github.com/defdefred/EasyLibSSH/blob/main/README_Arduino.md)
 
 ## Configuration
 
@@ -66,6 +66,9 @@ When connected to the serial console, you can resize the terminal with:
 ```
 stty rows 50 cols 132
 ```
+
+### Linux kernel
+To do...
 
 ### Grub
 To do...
