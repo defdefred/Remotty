@@ -8,7 +8,9 @@ Remotty is an ESP32 based, cheap remote serial console, prodiving a secure WiFi 
 A cheap Openwrt router can acte as a SSH portal and serve a dedicated WiFi management network to several Remotty.
 
 ## Hardware & Software
-Any ESP32 board with usb port and flashed with [Arduino](https://github.com/defdefred/EasyLibSSH/blob/main/README_Arduino.md).
+Any ESP32 board with usb port and flashed with [Arduino](https://github.com/defdefred/EasyLibSSH/blob/main/README_Arduino.md). Tested Boards:
+- Lolin mini s2 -> Ok but can't be remotely flashed)
+- LILYGO TTGO T-Display -> Ok
 
 The libSSH server api is quite tricky, so I use the [easylibssh](https://github.com/defdefred/EasyLibSSH) library.
 ## Configuration
@@ -106,6 +108,17 @@ PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
 Enaling/Disabling the USB serial console is resetting `/dev/ttyUSB0` permission.
 You need to `chmod 666 /dev/ttyUSB0` it.
 
+### ssh is not authenticating
+Try to specify you private keys and wait for agetty to issue the login prompt:
+```
+$ ssh -i ~/.ssh/id_ed25519 192.168.3.131
+# Welcome to Remotty - SSH access to serial USB console
+Waiting for serial.
+
+Debian GNU/Linux bookworm/sid wize ttyACM0
+
+wize login:
+```
 ### agetty did not start on /dev/ttyUSBx
 Did you customize the systemd service as advised?
 
