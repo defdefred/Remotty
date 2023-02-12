@@ -80,6 +80,9 @@ To do...
 ### Grub
 To do...
 
+### EFI
+To do...
+
 ## Troubleshooting
 
 ### How to compile/flash remotty?
@@ -124,6 +127,13 @@ Did you customize the systemd service as advised?
 
 ### ESP32 is in undefined state
 You can reset it by reflashing it.
+
+### What is the Remotty IP?
+If you dont want to compile the code with debug mode, you can search for the Remotty IP with the one-liner:
+```
+$ IP=1;while [ "$IP" -lt 255 ] ; do echo -n "$IP " ; ssh -i ~/.ssh/id_ed25519 -o ConnectTimeOut=1 192.168.3."$IP" 2>&1 | grep -vF "Connection timed out" ; IP=$(("$IP"+1)) ; done
+```
+Just change `192.168.3.` with your network and id_ed25519 with your private ssh key.
 
 ## Next ideas
 
