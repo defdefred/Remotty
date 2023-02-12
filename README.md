@@ -133,7 +133,7 @@ If you dont want to compile the code with debug mode, you can search for the Rem
 ```
 $ IP=1;while [ "$IP" -lt 255 ] ; do echo -n "$IP " ; ssh -i ~/.ssh/id_ed25519 -o ConnectTimeOut=1 192.168.3."$IP" 2>&1 | grep -vF "Connection timed out" ; IP=$(("$IP"+1)) ; done
 ```
-Just change `192.168.3.` with your network and id_ed25519 with your private ssh key.
+Just change `192.168.3.` with your network and `id_ed25519` with your private ssh key.
 
 ## Next ideas
 
