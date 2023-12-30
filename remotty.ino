@@ -28,7 +28,7 @@ void setup()
 {
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
-  WiFi.setHostname("Remottty");  
+  WiFi.setHostname("Remotty");  
   WiFi.begin(configSTASSID, configSTAPSK);
   while (WiFi.status() != WL_CONNECTED) delay(1000);
 
